@@ -69,12 +69,12 @@ def motor_model(R, L, Kt, Ke, J, k, theta0, omega0, t, u_values):
     omega[0] = omega0
 
     for x in range(1, n):
-        # Current values
+        # Calculating derivatives
         di_dt = (u_values[x-1] - R * i[x-1] - Ke * omega[x-1]) / L
         dtheta_dt = omega[x-1]
         domega_dt = (Kt * i[x-1] - k * theta[x-1]) / J
 
-        # Euler update
+        # Euler's method
         i[x] = i[x-1] + dt * di_dt
         theta[x] = theta[x-1] + dt * dtheta_dt
         omega[x] = omega[x-1] + dt * domega_dt
@@ -113,7 +113,7 @@ def submit_parameters(R_var, L_var, Kt_var, Ke_var, J_var, k_var, theta0_var, om
     
     signal_plot = Plot("Signal plot", "Voltage (V)", 10, 2.5)
     current_plot = Plot("Current plot", "Current (A)", 10, 2.5)
-    omega_plot = Plot("Omega plot", "Omega (rad/s)", 10, 2.5)
+    omega_plot = Plot("Angular velocity plot", "Omega (rad/s)", 10, 2.5)
 
     signal_plot.plot(t, u_values, 0)
     current_plot.plot(t, i, 1)
