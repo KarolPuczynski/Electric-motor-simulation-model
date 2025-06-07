@@ -96,6 +96,14 @@ def submit_parameters(R_var, L_var, Kt_var, Ke_var, J_var, k_var, theta0_var, om
     freq = frequency_var.get()
     signal_type = signal_type_var.get()
 
+    # Validating inputs
+    if L == 0:
+        tk.messagebox.showerror("Error", "Inductance (L) cannot be zero.")
+        return
+    elif J == 0:
+        tk.messagebox.showerror("Error", "Inertia (J) cannot be zero.")
+        return
+
     t = numpy.linspace(0, duration, int(duration * 100))
 
     # Generating signal based on signal type
