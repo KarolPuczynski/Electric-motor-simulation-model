@@ -129,8 +129,8 @@ def submit_parameters(R_var, L_var, Kt_var, Ke_var, J_var, k_var, theta0_var, om
 
 def main():
     # Motor parameters
-    R_var = tk.DoubleVar(value=1)
-    L_var = tk.DoubleVar(value=1)
+    R_var = tk.DoubleVar(value=10)
+    L_var = tk.DoubleVar(value=0.1)
     Kt_var = tk.DoubleVar(value=1)
     Ke_var = tk.DoubleVar(value=1)
     J_var = tk.DoubleVar(value=1)
