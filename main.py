@@ -129,20 +129,20 @@ def submit_parameters(R_var, L_var, Kt_var, Ke_var, J_var, k_var, theta0_var, om
 
 def main():
     # Motor parameters
-    R_var = tk.DoubleVar()
-    L_var = tk.DoubleVar()
-    Kt_var = tk.DoubleVar()
-    Ke_var = tk.DoubleVar()
-    J_var = tk.DoubleVar()
-    k_var = tk.DoubleVar()
-    theta0_var = tk.DoubleVar()
-    omega0_var = tk.DoubleVar()
+    R_var = tk.DoubleVar(value=1)
+    L_var = tk.DoubleVar(value=1)
+    Kt_var = tk.DoubleVar(value=1)
+    Ke_var = tk.DoubleVar(value=1)
+    J_var = tk.DoubleVar(value=1)
+    k_var = tk.DoubleVar(value=1)
+    theta0_var = tk.DoubleVar(value=0)
+    omega0_var = tk.DoubleVar(value=1)
 
     # Signal parameters
-    signal_type_var = tk.StringVar()
-    amplitude_var = tk.DoubleVar()
-    duration_var = tk.DoubleVar()
-    frequency_var = tk.DoubleVar()
+    signal_type_var = tk.StringVar(value="Rectangle")
+    amplitude_var = tk.DoubleVar(value=1)
+    duration_var = tk.DoubleVar(value=20)
+    frequency_var = tk.DoubleVar(value=1)
 
     labels_and_entries = [
         ("R (Ω):", R_var),
@@ -185,6 +185,9 @@ def main():
     photo = ImageTk.PhotoImage(scheme_img)
     scheme_label = tk.Label(root, image=photo)
     scheme_label.grid(row=n+1, column=0, columnspan=2, pady=20, in_=param_frame)
+
+    # Setting up starting parameters
+    submit_parameters(R_var, L_var, Kt_var, Ke_var, J_var, k_var, theta0_var, omega0_var, signal_type_var, amplitude_var, duration_var, frequency_var)
 
     root.mainloop()
 
