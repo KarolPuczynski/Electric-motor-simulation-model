@@ -104,7 +104,7 @@ def submit_parameters(R_var, L_var, Kt_var, Ke_var, J_var, k_var, theta0_var, om
         tk.messagebox.showerror("Error", "Inertia (J) cannot be zero.")
         return
 
-    t = numpy.linspace(0, duration, int(duration * 100))
+    t = numpy.linspace(0, duration, int(duration * 1000))
 
     # Generating signal based on signal type
     if signal_type == "Rectangle":
